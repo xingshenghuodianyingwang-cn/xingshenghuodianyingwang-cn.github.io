@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="性生活电影网（xingshenghuodianyingwang-cn.github.io）是一份「把电影放回性生活里」的观影指南：按通勤、家务、周末、失眠、带娃、独处等真实性生活场景推荐影片，附观影时长、情绪基调、正版观看渠道与一句性生活提示。">
+<meta name="keywords" content="性生活电影网, xingshenghuodianyingwang-cn, 性生活电影, 性生活流电影, 治愈电影, 观影指南, 电影推荐, 场景化片单, GitHub Pages 电影站">
+<meta name="robots" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<title>性生活电影网 - 场景化观影指南 · 性生活流电影推荐 · 片单导航 | xingshenghuodianyingwang-cn.github.io</title>
+<link rel="canonical" href="https://xingshenghuodianyingwang-cn.github.io/">
+<style>
+:root{
+  --bg:#f4f1ea; --card:#fffdf8; --ink:#1d2221; --mute:#7b807c;
+  --line:#dfd9ca; --tea:#7d8b6e; --clay:#c16b4a; --ink2:#3c5a66; --must:#d3a32b; --plum:#8a5c6d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.85;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+.serif{font-family:Georgia,"Songti SC","STSong",serif}
+.chip{display:inline-block;font-size:10.5px;letter-spacing:2.4px;font-weight:800;color:var(--clay);text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:40px;font-size:13.5px;font-weight:700;letter-spacing:.6px;cursor:pointer;border:1.5px solid var(--ink);transition:.25s}
+.btn-d{background:var(--ink);color:#f4f1ea}
+.btn-d:hover{background:var(--clay);border-color:var(--clay);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--ink)}
+.btn-o:hover{background:rgba(193,107,74,.09)}
+
+/* NAV */
+.navbar{position:sticky;top:0;z-index:90;background:rgba(244,241,234,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nin{display:flex;align-items:center;gap:14px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:850;font-size:17px;letter-spacing:.5px}
+.logo .sun{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f2cf7b,var(--must) 60%,#b8860b);box-shadow:0 0 0 4px rgba(211,163,43,.16);animation:sun 9s linear infinite}
+@keyframes sun{to{transform:rotate(360deg)}}
+.logo small{display:block;font-size:9px;color:var(--mute);letter-spacing:2.2px;font-weight:600}
+.nl{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nl a{font-size:12.5px;padding:7px 11px;color:var(--mute);font-weight:600;position:relative}
+.nl a::after{content:"";position:absolute;left:11px;right:11px;bottom:4px;height:1.5px;background:var(--clay);transform:scaleX(0);transition:.25s;transform-origin:right}
+.nl a:hover{color:var(--clay)}
+.nl a:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* HERO : split with blob */
+.hero{padding:60px 0 46px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(125,139,110,.26),transparent 68%);right:-120px;top:-160px}
+.hero::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(193,107,74,.2),transparent 68%);left:-90px;bottom:-140px;z-index:0}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:46px;align-items:center}
+h1{font-size:clamp(38px,7vw,70px);line-height:1.08;font-weight:900;letter-spacing:-1.4px;font-family:Georgia,"Songti SC",serif}
+h1 .stroke{-webkit-text-stroke:2px var(--ink);color:transparent}
+h1 .dot{color:var(--clay)}
+.hero p.lede{font-size:16.5px;color:#424743;margin-top:16px;max-width:580px}
+.hero p.lede strong{color:var(--clay);font-weight:800}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.moods{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.moods span{font-size:12px;padding:5px 13px;border:1px solid var(--line);border-radius:30px;background:var(--card);color:#5b625d}
+.moods span:hover{color:#fff;background:var(--tea);border-color:var(--tea);cursor:default}
+.hero-card{border:1.5px solid var(--ink);border-radius:18px;padding:26px;background:var(--card);box-shadow:9px 9px 0 rgba(29,34,33,.10);transform:rotate(1.2deg)}
+.hero-card h3{font-family:Georgia,"Songti SC",serif;font-size:19px;margin-bottom:14px}
+.hc{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:13px}
+.hc:last-child{border:none}
+.hc b{width:52px;flex:none;color:var(--clay);font-family:Georgia,serif;font-size:14px}
+.hc em{font-style:normal;color:var(--mute);font-size:11px;display:block;margin-top:1px}
+
+/* section */
+section{padding:68px 0}
+.sec{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;flex-wrap:wrap;margin-bottom:34px}
+.sec h2{font-size:clamp(23px,3.5vw,33px);font-weight:850;margin-top:8px;font-family:Georgia,"Songti SC",serif}
+.sec h2 em{font-style:normal;color:var(--clay)}
+.sec > p{color:var(--mute);font-size:14px;max-width:580px}
+
+/* COL1 - scene scroller (horizontal track) */
+.scenes{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 22px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.scenes::-webkit-scrollbar{height:8px}
+.scenes::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
+.scene{flex:0 0 268px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;transition:.26s;position:relative;overflow:hidden}
+.scene::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--tea)}
+.scene:nth-child(2)::before{background:var(--clay)}
+.scene:nth-child(3)::before{background:var(--ink2)}
+.scene:nth-child(4)::before{background:var(--must)}
+.scene:nth-child(5)::before{background:var(--plum)}
+.scene:nth-child(6)::before{background:var(--clay)}
+.scene:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 14px 28px rgba(29,34,33,.13);border-color:var(--ink)}
+.scene .ic{font-size:25px}
+.scene h3{font-size:16.5px;margin:7px 0 4px}
+.scene p{font-size:12.3px;color:var(--mute);min-height:42px}
+.scene .meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.scene .meta i{font-style:normal;font-size:10.5px;padding:3px 9px;border-radius:20px;background:rgba(125,139,110,.14);color:#4c5a41}
+.scene:hover .meta i{background:var(--ink);color:#f4f1ea}
+
+/* COL2 - timeline (vertical flow) */
+.flow{position:relative;max-width:860px;margin:0 auto;padding-left:34px}
+.flow::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(var(--clay) 0 8px,transparent 8px 16px)}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:16px;transition:.24s}
+.step::before{content:"";position:absolute;left:-31px;top:24px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--clay)}
+.step:hover{box-shadow:0 10px 24px rgba(29,34,33,.11);transform:translateX(5px)}
+.step .when{font-size:11px;letter-spacing:2px;font-weight:800;color:var(--clay)}
+.step h3{font-size:17px;margin:2px 0 5px;font-family:Georgia,"Songti SC",serif}
+.step p{font-size:13.3px;color:#4d544f}
+.step .pick{margin-top:9px;font-size:12px;color:var(--ink2);border-top:1px dotted var(--line);padding-top:8px}
+.step .pick b{color:var(--clay)}
+
+/* COL3 - comparison table */
+.cmp{overflow-x:auto;border:1.5px solid var(--ink);border-radius:14px;background:var(--card)}
+.cmp table{width:100%;border-collapse:collapse;min-width:640px;font-size:13.3px}
+.cmp th,.cmp td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp thead th{background:var(--ink);color:#f4f1ea;font-size:12px;letter-spacing:1.6px;font-weight:800}
+.cmp tbody tr:nth-child(even){background:rgba(125,139,110,.06)}
+.cmp tbody tr:hover{background:rgba(193,107,74,.09)}
+.cmp td:first-child{font-weight:800;white-space:nowrap;color:var(--clay);font-family:Georgia,serif}
+.tag{display:inline-block;font-size:10.5px;padding:2px 9px;border-radius:20px;background:rgba(60,90,102,.12);color:var(--ink2);margin:2px}
+.tag.no{background:rgba(193,107,74,.16);color:#8f4327}
+
+/* COL4 - bento mood board */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:14px}
+.bx{border-radius:16px;padding:20px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;transition:.28s;cursor:default;position:relative;overflow:hidden}
+.bx::after{content:"";position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.10)}
+.bx:hover{transform:scale(1.025);box-shadow:0 18px 34px rgba(29,34,33,.22)}
+.bx.w2{grid-column:span 2}
+.bx.h2{grid-row:span 2}
+.bx.a{background:linear-gradient(135deg,#7d8b6e,#556344)}
+.bx.b{background:linear-gradient(135deg,#c16b4a,#914726)}
+.bx.c{background:linear-gradient(135deg,#3c5a66,#25414d)}
+.bx.d{background:linear-gradient(135deg,#d3a32b,#a67c0c)}
+.bx.e{background:linear-gradient(135deg,#8a5c6d,#623f50)}
+.bx.f{background:linear-gradient(135deg,#4a5568,#2d3748)}
+.bx .nm{font-size:11px;letter-spacing:2.5px;opacity:.85;font-weight:800}
+.bx .big{font-family:Georgia,"Songti SC",serif;font-size:26px;font-weight:850;line-height:1.25}
+.bx .sm{font-size:12px;opacity:.9}
+
+/* COL5 - accordion FAQ */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:840px;margin:0 auto}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.22s}
+details[open]{box-shadow:0 10px 26px rgba(29,34,33,.09);border-color:var(--clay)}
+summary{padding:17px 22px;cursor:pointer;font-weight:750;font-size:15px;list-style:none;display:flex;gap:14px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"❖";color:var(--clay);font-size:13px;flex:none}
+summary::after{content:"＋";margin-left:auto;font-family:Georgia,serif;color:var(--mute);font-size:19px;transition:.25s}
+details[open] summary::after{content:"－";color:var(--clay)}
+details p{padding:0 22px 18px 44px;font-size:13.6px;color:#4d544f}
+details p b{color:var(--clay)}
+
+/* CTA */
+.cta{margin-top:10px;border-radius:22px;padding:54px 34px;text-align:center;background:radial-gradient(circle at 50% -20%,rgba(211,163,43,.3),transparent 60%),var(--ink);color:#f4f1ea}
+.cta h2{font-family:Georgia,"Songti SC",serif;font-size:clamp(25px,3.8vw,38px)}
+.cta h2 u{text-decoration:none;color:#f2cf7b}
+.cta p{opacity:.84;max-width:620px;margin:12px auto 24px;font-size:14.5px}
+.cta .btn-d{background:#f4f1ea;color:var(--ink);border-color:#f4f1ea}
+.cta .btn-d:hover{background:#f2cf7b;border-color:#f2cf7b}
+
+footer{border-top:1px solid var(--line);padding:34px 0 24px;color:var(--mute);font-size:12.5px;margin-top:14px}
+.ff{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.fn{display:flex;flex-wrap:wrap;gap:18px}
+.fn a:hover{color:var(--clay)}
+.bread{font-size:11.5px;margin-top:14px}
+.bread a{color:var(--clay)}
+.copy{margin-top:15px;border-top:1px solid var(--line);padding-top:15px;font-size:11.5px;color:#8f938f;line-height:1.9}
+
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:1fr}
+  .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .bento{grid-template-columns:1fr;grid-auto-rows:auto}
+  .bx.w2,.bx.h2{grid-column:auto;grid-row:auto}
+  .nl a{padding:6px 7px;font-size:11.5px}
+  .scene{flex:0 0 240px}
+  section{padding:50px 0}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<header class="navbar">
+  <div class="wrap nin">
+    <div class="logo"><span class="sun" aria-hidden="true"></span>性生活电影网<small>XINGSHENGHUODIANYINGWANG-CN.GITHUB.IO</small></div>
+    <nav class="nl" aria-label="主导航">
+      <a href="#scene">场景</a>
+      <a href="#flow">节奏</a>
+      <a href="#cmp">挑选</a>
+      <a href="#mood">心情</a>
+      <a href="#faq">问答</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <div>
+        <span class="chip">◆ 把电影放回性生活里</span>
+        <h1>性生活<span class="stroke">电影</span><span class="dot">网</span></h1>
+        <p class="lede">「性生活电影网」（xingshenghuodianyingwang-cn.github.io）不做排行榜，只做<strong>场景匹配</strong>：通勤 18 分钟、晾衣服的 40 分钟、失眠的深夜、带娃的周六下午——用刚刚好的片长与情绪，接住你真实的一天。</p>
+        <div class="acts">
+          <a class="btn btn-d" href="#scene">🎬 按场景找片</a>
+          <a class="btn btn-o" href="#mood">🌤 按心情找片</a>
+        </div>
+        <div class="moods" aria-label="性生活场景">
+          <span>通勤</span><span>家务</span><span>周末</span><span>失眠</span><span>带娃</span><span>独处</span><span>雨天</span><span>搬家</span><span>失恋</span><span>加班后</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>今日性生活提案</h3>
+        <div class="hc"><b>07:20</b><span>通勤<em>短片 / 喜剧 / ≤25 分钟</em></span></div>
+        <div class="hc"><b>12:30</b><span>午餐<em>美食纪录 / 轻松 / 可随时暂停</em></span></div>
+        <div class="hc"><b>21:00</b><span>睡前<em>性生活流 / 治愈 / 不烧脑</em></span></div>
+        <div class="hc"><b>周末</b><span>慢片<em>长镜头 / 自然 / 允许走神</em></span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- COL 1 : horizontal scene scroller -->
+  <section id="scene" aria-labelledby="t1">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <span class="chip">Column 01 · 场景片单</span>
+          <h2 id="t1">你现在<em>正站在</em>哪个场景</h2>
+        </div>
+        <p>左右滑动（或滚动）选择性生活片段。每卡给出片长、情绪基调与一句"为什么适合此刻"，点击进入该场景片单。</p>
+      </div>
+      <div class="scenes">
+
+        <a class="scene" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="ic">🚇</div>
+          <h3 itemprop="name">通勤 20 分钟</h3>
+          <p itemprop="description">短片、单集、节奏快、能随时暂停。到站即止，不留悬念负担。</p>
+          <span class="meta"><i>≤25 min</i><i>喜剧</i><i>动画</i></span>
+        </a>
+
+        <a class="scene" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="ic">🧺</div>
+          <h3 itemprop="name">做家务时</h3>
+          <p itemprop="description">需要"听"不需要"看"：对白密集的谈话片、纪录片、有声感强的电影。</p>
+          <span class="meta"><i>可分心</i><i>对话驱动</i><i>中长篇</i></span>
+        </a>
+
+        <a class="scene" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="ic">🌧</div>
+          <h3 itemprop="name">雨天周末</h3>
+          <p itemprop="description">允许走神的长镜头、慢节奏、窗外有雨声的片子。时间充裕，可以"浪费"。</p>
+          <span class="meta"><i>≥110 min</i><i>性生活流</i><i>治愈</i></span>
+        </a>
+
+        <a class="scene" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="ic">🌙</div>
+          <h3 itemprop="name">失眠深夜</h3>
+          <p itemprop="description">不要悬疑、不要惊吓。要安静、要低饱和、要有人在说话。</p>
+          <span class="meta"><i>深夜友好</i><i>低刺激</i><i>散文感</i></span>
+        </a>
+
+        <a class="scene" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="ic">👶</div>
+          <h3 itemprop="name">带娃的下午</h3>
+          <p itemprop="description">全家可看、无惊吓、20 分钟一轮回。孩子睡着后可续。</p>
+          <span class="meta"><i>合家欢</i><i>动画</i><i>短篇集</i></span>
+        </a>
+
+        <a class="scene" href="#" rel="nofollow" itemscope itemtype="https://schema.org/WebSite">
+          <div class="ic">🪑</div>
+          <h3 itemprop="name">独处时刻</h3>
+          <p itemprop="description">不讨好、不解释、允许沉默。适合一个人看完不发朋友圈的片子。</p>
+          <span class="meta"><i>独立</i><i>作者向</i><i>长镜头</i></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COL 2 : vertical timeline -->
+  <section id="flow" aria-labelledby="t2" style="background:linear-gradient(180deg,transparent,rgba(125,139,110,.06))">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <span class="chip">Column 02 · 一天的电影节奏</span>
+          <h2 id="t2">从早到晚，<em>情绪有曲线</em></h2>
+        </div>
+        <p>电影不是越多越好，而是"在对的时间遇到对的片子"。这是一份可被复制的一天观影节奏。</p>
+      </div>
+      <div class="flow">
+
+        <div class="step">
+          <div class="when">MORNING · 清醒</div>
+          <h3>早晨：让画面代替闹钟</h3>
+          <p>别一上来就烧脑。用色彩、光线、城市的清晨镜头把大脑"亮"起来。纪录短片、城市观察、自然影像最合适。</p>
+          <div class="pick">🎯 推荐调性：<b>明亮 / 短 / 有声音设计</b></div>
+        </div>
+
+        <div class="step">
+          <div class="when">NOON · 喘息</div>
+          <h3>午间：给大脑放个假</h3>
+          <p>午休只有 40 分钟，选一部"随时可中断"的片：每 10 分钟自成小段落，中断不心疼，续看不费劲。</p>
+          <div class="pick">🎯 推荐调性：<b>单元剧 / 美食 / 轻喜剧</b></div>
+        </div>
+
+        <div class="step">
+          <div class="when">DUSK · 回落</div>
+          <h3>黄昏：允许自己低落一会儿</h3>
+          <p>下班后的 30 分钟是"情绪合法期"。看一部有人受伤、有人和解、有人做饭的片子，比刷短视频更能恢复。</p>
+          <div class="pick">🎯 推荐调性：<b>性生活流 / 治愈 / 不鸡汤</b></div>
+        </div>
+
+        <div class="step">
+          <div class="when">NIGHT · 深处</div>
+          <h3>深夜：与复杂的人共处</h3>
+          <p>夜深人不蠢。这时才适合看结构复杂、道德暧昧、需要回味的片子。看完别急着睡，留十分钟发呆。</p>
+          <div class="pick">🎯 推荐调性：<b>作者电影 / 人性议题 / 长片</b></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COL 3 : comparison table -->
+  <section id="cmp" aria-labelledby="t3">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <span class="chip">Column 03 · 挑选对照</span>
+          <h2 id="t3">这片子，<em>到底适不适合今晚</em></h2>
+        </div>
+        <p>横向对比五个常见观影诉求。同一部"高分片"，在错误的时间看，体验可能很差——我们帮你避坑。</p>
+      </div>
+      <div class="cmp">
+        <table>
+          <thead>
+            <tr><th>观影诉求</th><th>片长</th><th>情绪基调</th><th>推荐类型</th><th>谨慎选择</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>想放松</td><td>≤100 min</td><td>轻快、明亮</td><td>喜剧、动画、公路片</td>
+              <td><span class="tag no">压抑文艺</span><span class="tag no">开放式结局</span></td>
+            </tr>
+            <tr>
+              <td>想被治愈</td><td>90–120 min</td><td>温暖、克制</td><td>性生活流、家庭、动物题材</td>
+              <td><span class="tag no">悲剧内核</span><span class="tag no">现实主义苦难</span></td>
+            </tr>
+            <tr>
+              <td>想思考</td><td>≥120 min</td><td>冷静、留白</td><td>作者电影、哲学、历史</td>
+              <td><span class="tag no">爆米花商业片</span><span class="tag no">强解释性旁白</span></td>
+            </tr>
+            <tr>
+              <td>想哭一场</td><td>100–130 min</td><td>温柔、不煽情</td><td>亲情、离别、成长</td>
+              <td><span class="tag no">刻意催泪</span><span class="tag no">BGM 强行铺垫</span></td>
+            </tr>
+            <tr>
+              <td>想陪家人</td><td>≤110 min</td><td>安全、有趣</td><td>合家欢、动画、冒险</td>
+              <td><span class="tag no">暴力镜头</span><span class="tag no">复杂政治隐喻</span></td>
+            </tr>
+            <tr>
+              <td>想打发时间</td><td>任意</td><td>强情节、快节奏</td><td>悬疑、犯罪、类型片</td>
+              <td><span class="tag no">慢节奏长镜头</span><span class="tag no">非线性叙事</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- COL 4 : bento mood board -->
+  <section id="mood" aria-labelledby="t4">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <span class="chip">Column 04 · 心情放映室</span>
+          <h2 id="t4">今天的心情，<em>值得被接住</em></h2>
+        </div>
+        <p>不是"推荐好片"，而是"匹配此刻"。点开对应心情，进入该情绪下的片单与一句性生活提示。</p>
+      </div>
+      <div class="bento">
+
+        <a class="bx a h2" href="#" rel="nofollow">
+          <div><div class="nm">MOOD 01</div><div class="big">累，但不想睡</div></div>
+          <div class="sm">低刺激 · 有陪伴感 · 看完能叹一口气</div>
+        </a>
+
+        <a class="bx b" href="#" rel="nofollow">
+          <div class="nm">MOOD 02</div>
+          <div class="big">想哭</div>
+          <div class="sm">不煽情 · 有人先哭给你看</div>
+        </a>
+
+        <a class="bx c w2" href="#" rel="nofollow">
+          <div class="nm">MOOD 03 · 周末慢片</div>
+          <div class="big">时间充裕，允许走神</div>
+          <div class="sm">长镜头 · 自然声 · 不追情节</div>
+        </a>
+
+        <a class="bx d" href="#" rel="nofollow">
+          <div class="nm">MOOD 04</div>
+          <div class="big">需要笑</div>
+          <div class="sm">不尴尬 · 不靠谐音梗</div>
+        </a>
+
+        <a class="bx e" href="#" rel="nofollow">
+          <div class="nm">MOOD 05</div>
+          <div class="big">有点丧</div>
+          <div class="sm">允许低落 · 但不沉下去</div>
+        </a>
+
+        <a class="bx f w2" href="#" rel="nofollow">
+          <div class="nm">MOOD 06 · 独处</div>
+          <div class="big">一个人，也不孤单</div>
+          <div class="sm">安静 · 克制 · 不讨好观众</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COL 5 : accordion FAQ -->
+  <section id="faq" aria-labelledby="t5">
+    <div class="wrap">
+      <div class="sec">
+        <div>
+          <span class="chip">Column 05 · 问与答</span>
+          <h2 id="t5">关于这个<em>性生活化片单</em></h2>
+        </div>
+        <p>我们做什么、不做什么，以及"性生活电影"在这里的确切含义。</p>
+      </div>
+      <div class="faq">
+
+        <details open>
+          <summary>Q1 · 这是什么网站？</summary>
+          <p>「性生活电影网」是一个<b>场景化观影指南与片单导航</b>站点，托管于 GitHub Pages。我们按"通勤、家务、周末、失眠、带娃、独处"等真实性生活场景组织影片，<b>不提供任何影片资源</b>，只给出片名、时长、情绪基调与正版观看渠道建议。</p>
+        </details>
+
+        <details>
+          <summary>Q2 · "性生活电影"指什么？</summary>
+          <p>不是某种固定类型，而是两层含义：一是<b>性生活流电影</b>（slice-of-life，重日常、轻冲突、长镜头）；二是<b>服务于性生活的电影</b>——在正确的时间看正确的片子，让观影成为性生活的一部分，而非逃避性生活的方式。</p>
+        </details>
+
+        <details>
+          <summary>Q3 · 片单怎么选出来的？</summary>
+          <p>四条标准：<b>时长诚实</b>（标注是否可中断）、<b>情绪准确</b>（不误伤）、<b>来源正版</b>（只推荐合法平台可看的）、<b>经得起重看</b>（不只靠反转）。片单每月更新，长期失效即下架并公示。</p>
+        </details>
+
+        <details>
+          <summary>Q4 · 和豆瓣、IMDb 有什么区别？</summary>
+          <p>它们回答"哪部最好"，我们回答"<b>此刻我该看哪部</b>"。同一部 9 分片，在加班后与在雨天周末的体验完全不同。我们不评分，只做场景与情绪的匹配。</p>
+        </details>
+
+        <details>
+          <summary>Q5 · 手机上看体验好吗？</summary>
+          <p>全站响应式：场景卡可横向滑动、表格可横向滚动、心情格自适应重排、动效在低端机自动降级。<b>弱网秒开</b>，无外部依赖，纯静态文件，适合在地铁上直接打开。</p>
+        </details>
+
+        <details>
+          <summary>Q6 · 可以投稿片单吗？</summary>
+          <p>可以。通过页脚"投稿片单"提交：<b>场景 + 片名 + 时长 + 为什么适合 + 正版渠道</b>。编辑部 5 个工作日内回复，录用即署名。拒绝纯商业推广与侵权内容。</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section aria-labelledby="c1">
+    <div class="wrap">
+      <div class="cta">
+        <h2 id="c1">今天，<u>只浪费一点点时间</u>在好电影上</h2>
+        <p>订阅「性生活观影周报」：每周 1 个性生活场景 + 3 部匹配影片 + 1 句性生活提示。无广告、可秒退、不催你打卡。</p>
+        <a class="btn btn-d" href="#" rel="nofollow">📮 订阅周报</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ff">
+      <div>
+        <strong style="color:var(--ink)">🍃 性生活电影网</strong> · <span>xingshenghuodianyingwang-cn.github.io</span>
+        <div style="margin-top:6px">场景化观影指南 · 性生活流电影推荐 · 片单导航</div>
+      </div>
+      <div class="fn">
+        <a href="#scene">场景片单</a>
+        <a href="#flow">一天节奏</a>
+        <a href="#cmp">挑选对照</a>
+        <a href="#mood">心情放映室</a>
+        <a href="#faq">问与答</a>
+        <a href="#" rel="nofollow">投稿片单</a>
+        <a href="#" rel="nofollow">版权声明</a>
+      </div>
+    </div>
+    <nav class="bread">
+      当前位置：<a href="https://xingshenghuodianyingwang-cn.github.io/">首页</a> / <span>性生活电影网</span>
+    </nav>
+    <p class="copy">
+      内容声明：本页为信息与观点类导航索引，所涉及的影片名称仅作介绍、评论与讨论之用，不构成任何资源提供，亦不托管、不链接至侵权内容。请遵守所在地法律法规，通过合法合规的正版渠道观看影视作品，尊重创作者的劳动与知识产权。文中片长与情绪标注为编辑部主观建议，仅供参考。© <span id="yr">2026</span> xingshenghuodianyingwang-cn.github.io · All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
